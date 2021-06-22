@@ -37,16 +37,6 @@ def song(song_id):
     return process_input(song_id) #jsonify(recomendations)
 
 
-@app.route('/favorites',methods = ['GET', 'POST'])
-def favorites():
-    my_dict = request.get_json(force=True)
-    track_list = pd.DataFrame()
-    for i in my_dict.values():
-        track_list = track_list.append(process_input(i,False))
-    track_list.drop_duplicates()
-    return track_list.sample(30).to_json(orient="records")
-
-
 @app.route('/image/<song_id>', methods = ['GET'])
 def radar_map(song_id):
     """Route for returning radar graph."""

@@ -3,10 +3,7 @@
 - [Spotify Song Suggester API](#spotify-song-suggester-api)
   - [Usage](#usage)
     - [Suggestion of 30 songs based on one track_id given](#retrieve-30-songs-suggested-based-on-one-track_id-given)
-    - [Suggestion of 30 songs based on a list of favorited song track_ids](#retrieve-30-songs-suggested-based-on-a-list-of-favorited-song-track_ids)
     - [Radar chart image based on one track_id given](#radar-chart-image-based-on-one-track_id-given)
-  - [Testing](#testing)
-  - [Deployment](#deployment)
 
 ## Spotify Song Suggester API
 
@@ -22,7 +19,7 @@ The app handles the requests, returning the appropriate JSON data.
 
 ## Usage
 
-#### Retrieve 30 songs suggested based on one track_id given
+#### Retrieve 15 songs suggested based on one track_id given
 
 ### `[GET] /song/<track_id>`
 
@@ -35,7 +32,7 @@ The app handles the requests, returning the appropriate JSON data.
 
 Example:
 
-` https://spotifyflask.herokuapp.com/song/6VjBxj5OhlHqL4h5qwo6gL`
+` https://spotify-ash.herokuapp.com/song/6VjBxj5OhlHqL4h5qwo6gL`
 
 Returns:
 
@@ -47,48 +44,6 @@ Returns:
 
 ---
 
-
-#### Retrieve 30 songs suggested based on a list of favorited song track_ids
-
-### `[GET] OR [POST] /favorites`
-
-
-	To retrieve data from this endpoint the body of the request should contain 
-	Json in the format of :
-  
-`{
-	"1":"song_id_1"
-	"2":" song_id_2",
-	"3":" song_id_3"
-}`
-
-Here is an example with actual track ids.
-
-`{
-	"1":"2RM4jf1Xa9zPgMGRDiht8O",
-	"2":"1tHDG53xJNGsItRA3vfVgs",
-	"3":"6Wosx2euFPMT14UXiWudMy"
-}`
-
-**Parameters:** None
-
-- request: JSON object with track_id's
-
-**Returns:** JSON array containing the full details of the top 30 suggestions based on a list of favorited song track_ids.
-
-Example:
-
-`https://spotifyflask.herokuapp.com/favorites`
-
-Returns:
-
-	`[{"index":85630,"artist_name":"Beautiful Eulogy","track_id":"5Uv8yxTZhMWYhufL4jcWyV",
-	"track_name":"Doxology - Instrumental","acousticness":0.609,"danceability":0.447,
-	"duration_ms":231297,"energy":0.396,"instrumentalness":0.897,"key":6,"liveness":0.145,
-	"loudness":-9.031,"mode":0,"speechiness":0.0367,"tempo":192.041,"time_signature":4,
-	"valence":0.0346,"popularity":21,"genre":"hip-hop"}`
-
----
 
 #### Radar chart image based on one track_id given
 
@@ -102,7 +57,7 @@ Returns:
 
 Example:
 
-`https://spotifyflask.herokuapp.com/image/6VjBxj5OhlHqL4h5qwo6gL`
+`https://spotify-ash.herokuapp.com/image/6VjBxj5OhlHqL4h5qwo6gL`
 
 Returns:
 
@@ -113,25 +68,5 @@ Returns:
     4nOzdd1SUV/4G8GdmGIcyoKAGwYJKEcUOAoJGUowNsG3EbiyJRtPjJ
     tnklxizm03ZTdFolsTE2BNj1BUsaFBRULEQsaCUiFhRERmkw5TfHwi
     rhihl4M4783zO8WwOyMwjyxmeud/...`
-
----
-
-### Testing
-
-Flask API was tested in Postman.
-
----
-
-## Deployment
-
-Find the last version of the Flask API on:
-
-[Home](https://spotifyflask.herokuapp.com)
-
-[Suggestions example based on one song](https://spotifyflask.herokuapp.com/song/6VjBxj5OhlHqL4h5qwo6gL)
-
-[Suggestions example based on a list of favorites](https://spotifyflask.herokuapp.com/favorites)
-
-[Radar chart image example based on one song](https://spotifyflask.herokuapp.com/image/6VjBxj5OhlHqL4h5qwo6gL)
 
 ---
