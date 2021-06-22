@@ -7,7 +7,7 @@ import base64
 import io
 
 
-df = pd.read_csv("https://raw.githubusercontent.com/Build-Week-Spotify-Song-Suggester-1/Data-science/master/MusicWithGenresFiltered.csv")
+df = pd.read_csv("https://raw.githubusercontent.com/brennanashley/DS-Build-3-Spotify/main/spotify_data.csv")
 def process_input(song_id, return_json = True):
     c = ["duration_ms", "index", "genre", "artist_name", "track_id", "track_name", "key", "mode"] # Columns to Omit
     song = df[df["track_id"] == song_id].iloc[0] # Get Song
